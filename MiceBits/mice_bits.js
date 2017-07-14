@@ -13,9 +13,9 @@ function stopClicked() {
 
 
 var myDiv = document.createElement("div");
-myDiv.innerHTML = "<h3 style='color: #fff; margin: 3px;'>::Mice Bits</h3><button style='background-color:#fff; margin: 2px 5px; width:80%;' onclick='startClicked()'>Start</button><button style='background-color: #fff; margin: 2px 5px; width:80%;' onclick='stopClicked()'>Stop</button>";
-myDiv.style.width = "100px";
-myDiv.style.height = "100px";
+myDiv.innerHTML = "<h3 style='color: #fff; margin: 3px;'>::Mice Bits</h3><button style='background-color:#fff; margin: 2px 5px; width:80%;' onclick='startClicked()'>Start</button><button style='background-color: #fff; margin: 2px 5px; width:80%;' onclick='stopClicked()'>Stop</button><p style='color: #eee; font-style:italic; padding-left: 3px;'>View data in console</p>";
+myDiv.style.width = "150px";
+myDiv.style.height = "110px";
 myDiv.style.top="50%";
 myDiv.style.right="0px";
 myDiv.style.position = "fixed";
@@ -31,11 +31,16 @@ document.getElementsByTagName("body")[0].onmousemove = function() {
     }
     var currentTime = Date.now();
     var lastDigit = currentTime.toString().slice(-1);
-    nums.push(lastDigit); if(nums.length > 10) {
+    nums.push(lastDigit);
+    if(nums.length > 10) {
         var hexNumInt = parseInt(nums.join(""));
-        hexNums.push(hexNumInt.toString(16).slice(1));
+        var hexNum = hexNumInt.toString(16);
+        var hexNumExcludeFirstVal = hexNum.slice(1);
+        var bitNumStr = parseInt(hexNumExcludeFirstVal, 16);
+        var bitNum = bitNumStr.toString(2);
+        hexNums.push(hexNumExcludeFirstVal);
         nums = [];
-        console.log(hexNums[hexNums.length - 1]); 
+        console.log("Hex digits: " + (hexNums[hexNums.length - 1] || '') + " - bits: " + (bitNum || '')); 
     } 
 };
 
