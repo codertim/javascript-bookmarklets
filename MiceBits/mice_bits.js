@@ -25,6 +25,7 @@ document.getElementsByTagName("body")[0].appendChild(myDiv);
 
 var nums = [];
 var hexNums = [];
+var longHexNumsk
 document.getElementsByTagName("body")[0].onmousemove = function() {
     if(!isGettingBits) {
         return;
@@ -32,7 +33,7 @@ document.getElementsByTagName("body")[0].onmousemove = function() {
     var currentTime = Date.now();
     var lastDigit = currentTime.toString().slice(-1);
     nums.push(lastDigit);
-    if(nums.length > 10) {
+    if(nums.length > 20) {
         var hexNumInt = parseInt(nums.join(""));
         var hexNum = hexNumInt.toString(16);
         var hexNumExcludeFirstVal = hexNum.slice(1);
@@ -40,7 +41,8 @@ document.getElementsByTagName("body")[0].onmousemove = function() {
         var bitNum = bitNumStr.toString(2);
         hexNums.push(hexNumExcludeFirstVal);
         nums = [];
-        console.log("Hex digits: " + (hexNums[hexNums.length - 1] || '') + " - bits: " + (bitNum || '')); 
+        console.log("Recent Hex digits: " + (hexNums[hexNums.length - 1] || '') + " - bits: " + (bitNum || '')); 
+        console.log("All Hex digits: ", hexNums.join(""));
     } 
 };
 
