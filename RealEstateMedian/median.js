@@ -11,11 +11,14 @@ for(var i=0; i < priceElements.length; i++) {
     prices.push(parseInt(price));
 }
 
+
 prices.sort(function(a,b) {
     if ((a-b) > 0) {
-        return 1; }
+        return 1;
+    }
     else {
-        return -1}
+        return -1;
+    }
 });
 
 console.log("sorted prices: ", prices); var isOdd = ((prices.length % 2) == 1) ? true : false;
@@ -35,4 +38,6 @@ if (isOdd) {
 console.log("median price:", medPrice);
 
 alert("Median Price: $" + medPrice);
+
+
 
