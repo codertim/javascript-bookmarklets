@@ -35,9 +35,21 @@ if (isOdd) {
     medPrice = (prices[medIdx] + prices[medIdx + 1]) / 2;
 }
 
-console.log("median price:", medPrice);
+var medPriceStr = medPrice.toString();
+console.log("median price:", medPriceStr);
+var formattedPrice = '';
 
-alert("Median Price: $" + medPrice);
+for (var i=0; i < medPriceStr.length; i++) {
+    if ( ((i+1) % 3 === 0) && (i < (medPriceStr.length -1)) ) {
+        formattedPrice = ',' + medPriceStr[medPriceStr.length - i -1] + formattedPrice;
+    } else {
+        formattedPrice = medPriceStr[medPriceStr.length - i -1] + formattedPrice;
+    }
+}
+
+
+
+alert("Median Price: $" + formattedPrice);
 
 
 
