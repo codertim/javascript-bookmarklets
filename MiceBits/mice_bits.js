@@ -1,4 +1,6 @@
 
+javascript:  
+
 var isGettingBits = false;
 
 function startClicked() {
